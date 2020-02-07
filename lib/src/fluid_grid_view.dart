@@ -56,6 +56,7 @@ class FluidGridView extends StatelessWidget {
   final ScrollPhysics physics;
   final EdgeInsets innerPadding;
   final bool fluid;
+  final bool fullScreen;
   final double horizontalPadding;
 
   FluidGridView(
@@ -63,6 +64,7 @@ class FluidGridView extends StatelessWidget {
       this.spacing,
       this.shrinkWrap = false,
       this.physics,
+        this.fullScreen = false,
       this.innerPadding = EdgeInsets.zero,
       this.fluid,
       this.horizontalPadding});
@@ -72,6 +74,7 @@ class FluidGridView extends StatelessWidget {
     return Fluid(
         horizontalPadding: horizontalPadding,
         fluid: fluid,
+        fullScreen: fullScreen,
         child: StaggeredGridView.count(
             crossAxisCount: 12,
             padding: innerPadding,

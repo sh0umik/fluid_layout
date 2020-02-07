@@ -6,7 +6,8 @@ class Fluid extends StatelessWidget {
   final Widget child;
   final bool fluid;
   final double horizontalPadding;
-  const Fluid({Key key, this.child, this.fluid, this.horizontalPadding})
+  final bool fullScreen;
+  const Fluid({Key key, this.child, this.fullScreen = false, this.fluid, this.horizontalPadding})
       : super(key: key);
 
   @override
@@ -16,7 +17,7 @@ class Fluid extends StatelessWidget {
         (horizontalPadding ?? FluidLayout.of(context).horizontalPadding);
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: FluidLayout.of(context).fluidPadding + innerPadding),
+          horizontal: !fullScreen ? FluidLayout.of(context).fluidPadding : 0 + innerPadding),
       child: child,
     );
   }
